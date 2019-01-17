@@ -1,8 +1,19 @@
 <resources>
 
-    <!-- Base application theme. -->
+    <!-- Since we are manually add a Toolbar view to activity_main.xml, we MUST append
+    "NoActionBar" to our style, or else our Toolbar will appear below the top bar in our app.
+    It will look like there are 2 toolbars. We don't want this, so "NoActionBar" is the fix.
+    What this is doing, is replacing the build-in action bar that would have shown up if we didn't
+    include "NoActionBar" and using our Toolbar view instead. Toolbar can be thought of as a replacement
+    for the ActionBar. The main difference between the two is that Toolbar must be manually defined
+    somewhere in your layout file, whereas the ActionBar does not (it's based on your theme and
+    the type of Activity you're using). But use Toolbar instead of ActionBar because its features
+    are a superset of ActionBar, and allow you to control more.
+
+    For an explanation of the differences between ActionBar and Toolbar, see
+    https://stackoverflow.com/a/27665019/2121620
+    -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>

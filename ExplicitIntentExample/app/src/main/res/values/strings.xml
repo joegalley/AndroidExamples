@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ExplicitIntentExample</string>
+    <string name="fire_intent_with_extra_data">Fire Intent with Extra Data</string>
+    <string name="fire_intent_with_bundle_data">Fire Intent with Bundle Data</string>
+    <string name="fire_intent_with_startactivityforresult">Fire Intent with startActivityForResult()</string>
+    <string name="fire_return_intent">Finish Third Activity</string>
+</resources>

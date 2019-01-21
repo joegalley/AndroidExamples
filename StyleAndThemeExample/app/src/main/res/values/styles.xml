@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- We're going to apply "AppTheme" to the entire APPLICATION. So all Views (in ANY Activity
+         that recognize the "android:textColor" property will have it set to "32sp"
+     -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">32sp</item>
+    </style>
+
+    <!-- Extend "AppTheme" and set 'android:textColor' to #0000ff (blue). Any Views that have
+         their "style" set to @style/AppTheme.MyBlueTextTheme" will have blue text. Since we're
+         extending the "AppTheme" style, we need to call this style "AppTheme.MyBlueTextTheme".
+
+         We are going to apply this theme to the "MyBlueTextActivity". See the
+     -->
+    <style name="AppTheme.MyBlueTextTheme">
+        <item name="android:textColor">#0000ff</item>
+    </style>
+
+    <!-- Extend "AppTheme" and set 'android:textColor' to #ff0000 (red). Any Views that have
+         their "style" set to @style/AppTheme.MyRedTextTheme" will have red text. Since we're
+         extending the "AppTheme" style, we need to call this style "AppTheme.MyRedTextTheme"
+     -->
+    <style name="AppTheme.MyRedTextTheme">
+        <item name="android:textColor">#ff0000</item>
+    </style>
+
+    <!-- Here we are extending a theme that itself extends another theme.
+         Extend "AppTheme.MyBlueTextTheme" and set 'android:textSize' to "14sp". Any Views that have
+         their "style" set to @style/AppTheme.MyBlueTextTheme.SmallText" will have text size 14sp.
+         Since we're extending the ""AppTheme.MyBlueTextTheme" style, we need to call this style
+         "AppTheme.MyBlueTextTheme.SmallText"
+     -->
+    <style name="AppTheme.MyBlueTextTheme.SmallText">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+</resources>

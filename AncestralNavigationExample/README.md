@@ -6,4 +6,5 @@ Examples of [ancestral navigation](https://developer.android.com/training/implem
 - When you hit the 'Up' button in SubChildActivity, you will go
 back to MainActivity, NOT back to the activity that started it
  (ChildActivity)
-- This is where the ancestral navigation is set up
+- [This](https://github.com/joegalley/AndroidExamples/blob/master/AncestralNavigationExample/app/src/main/AndroidManifest.xml#L29)
+ is where the ancestral navigation is set up

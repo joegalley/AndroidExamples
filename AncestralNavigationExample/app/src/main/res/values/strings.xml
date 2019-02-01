@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AncestralNavigationExample</string>
+    <string name="title_activity_child">ChildActivity</string>
+    <string name="title_sub_child_activity">SubChildActivity</string>
+</resources>

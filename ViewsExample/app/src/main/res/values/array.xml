@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sodaItems">
+        <item>Pepsi</item>
+        <item>Coca-Cola</item>
+        <item>Sprite</item>
+        <item>Dr. Pepper</item>
+    </string-array>
+</resources>

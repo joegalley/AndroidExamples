@@ -1,56 +1,141 @@
 package com.example.viewsexample;
 
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.Toast;
+import android.view.ViewGroup;
+
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private CheckBox mCheckBox;
+    private SectionsPagerAdapter mSectionsPagerAdapter;
+    private ViewPager mViewPager;
+    private TabLayout mTabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Use findViewById() to get a reference to the checkbox with id "myCheckbox"
-        mCheckBox = this.findViewById(R.id.myCheckbox);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        /* - CheckBox's setOnCheckedChangeListener() method allow you to listen for checking and
-             un-checking itself. When you check the box, we will display "checked" in a Toast, when
-             it is un-checked, we will display "unchecked".
+        mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
 
-           - This is one way to set a listener for a View. The other was is directly in the XML
-             layout file, as we do for the Button and its myButtonOnClick() method below.
-         */
+        mViewPager = (ViewPager) findViewById(R.id.container);
+        mViewPager.setAdapter(mSectionsPagerAdapter);
 
-        mCheckBox.setOnCheckedChangeListener(
-                new CompoundButton.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                        /* - The first parameter to makeText() is a Context object. Since the
-                            listener is of type OnCheckedChangeListener, which does not extend from
-                            the Context object, we must use "MainActivity.this" instead of just "this"
-                            (since MainActivity extends the Context object).
+        mTabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        mTabLayout.addTab(mTabLayout.newTab().setText("Views 1"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Views 2"));
+        mTabLayout.addTab(mTabLayout.newTab().setText("Views 3"));
+        mTabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
-                            - This is a common pattern when implementing interfaces for View callbacks
-                         */
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(mTabLayout));
 
-                        Toast.makeText(MainActivity.this, isChecked ? "checked" : "unchecked", Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
+        mTabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
 
-    /* Executed when the Button from activity_main.xml is clicked. This is an example of defining
-       a View callback method directly in the XML layout file. Contrast with how we wire up the callback
-       in Java code for the CheckBox above.
-     */
-    public void myButtonOnClick(View view) {
-        mCheckBox.setChecked(false);
-        Toast.makeText(this, "You clicked the button!", Toast.LENGTH_SHORT).show();
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public static class PlaceholderFragment extends Fragment {
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        public PlaceholderFragment() {
+        }
+
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = null;
+
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    rootView = inflater.inflate(R.layout.fragment_one, container, false);
+                    break;
+                case 2:
+                    rootView = inflater.inflate(R.layout.fragment_two, container, false);
+                    break;
+                case 3:
+                    rootView = inflater.inflate(R.layout.fragment_three, container, false);
+                    break;
+            }
+
+            return rootView;
+        }
+    }
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return PlaceholderFragment.newInstance(position + 1);
+        }
+
+        @Override
+        public int getCount() {
+            return 3;
+        }
     }
 }
+
+
+
+

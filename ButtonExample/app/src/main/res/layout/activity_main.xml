@@ -8,11 +8,14 @@
     tools:context=".MainActivity">
 
     <!-- The "android:background" property allows us to set a Drawable resource for this Button -->
+    <!-- Add an icon to the Button with "drawableLeft". This is a resource we created with the
+         Image Asset Studio -->
     <Button
         android:id="@+id/myButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_states"
+        android:drawableLeft="@drawable/ic_action_name"
         android:text="Click Me!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

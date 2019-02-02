@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, TableLayout.class));
     }
 
-    public void showGridLayout(View view) {
+    public void showRelativeLayout(View view) {
         startActivity(new Intent(this, RelativeLayout.class));
     }
 }

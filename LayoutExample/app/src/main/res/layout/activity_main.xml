@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_linear_layout_vert"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:onClick="showLinearLayoutVertical"
+        android:text="Linear Layout (vertical)"
+        app:layout_constraintBottom_toTopOf="@id/btn_linear_layout_horiz"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <Button
+        android:id="@+id/btn_linear_layout_horiz"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="showLinearLayoutHorizontal"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Linear Layout (horizontal)"
+        app:layout_constraintBottom_toTopOf="@id/btn_grid_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_linear_layout_vert"/>
+
+    <Button
+        android:id="@+id/btn_grid_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:onClick="showTableLayout"
+        android:layout_marginRight="30dp"
+        android:text="GridLayout"
+        app:layout_constraintBottom_toTopOf="@id/btn_table_layout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_linear_layout_horiz"/>
+
+    <Button
+        android:id="@+id/btn_table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:onClick="showGridLayout"
+        android:layout_marginRight="30dp"
+        android:text="RelativeLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_grid_layout"/>
+</android.support.constraint.ConstraintLayout>

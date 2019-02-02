@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        The color when the button is pressed. This state is true when the user is pressing on the
+        button with their finger. Notice how a @color resource is sufficient for a Drawable
+    -->
+    <item android:drawable="@color/colorOne"
+          android:state_pressed="true"/>
+    <!--
+        When the user is "selected". This is like toggling the button on/off. This must be set in
+        code with setSelected(true) and setSelected(false);
+    -->
+    <item android:drawable="@color/colorTwo"
+          android:state_selected="true"/>
+
+    <!-- The default color, used when no above states are true -->
+    <item android:drawable="@color/colorThree"/>
+</selector>
